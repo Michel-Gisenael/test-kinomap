@@ -1,6 +1,6 @@
 import kind from '@enact/core/kind';
 import ThemeDecorator from '@enact/sandstone/ThemeDecorator';
-
+import VideoList from '../components/VideoList';
 import css from './App.module.less';
 
 const App = kind({
@@ -13,7 +13,7 @@ const App = kind({
 
 	render: (props) => (
 		<div {...props}>
-			hello
+			<VideoList />
 		</div>
 	)
 });

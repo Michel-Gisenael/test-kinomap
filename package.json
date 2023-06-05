@@ -14,8 +14,8 @@
 		"license": "enact license",
 		"test": "enact test",
 		"test-watch": "enact test --watch",
-    "pack-tv": "enact pack -l tv",
-    "launch-simulator": "ares-launch -s 23 ./dist"
+		"pack-tv": "enact pack -l tv",
+		"launch-simulator": "ares-launch -s 23 ./dist"
 	},
 	"license": "UNLICENSED",
 	"private": true,
@@ -41,6 +41,7 @@
 		"@types/node": "^18.11.18",
 		"@types/react": "^18.0.27",
 		"@types/react-dom": "^18.0.10",
+		"axios": "^1.4.0",
 		"ilib": "npm:ilib-webos@^14.15.1-webos1",
 		"prop-types": "^15.8.1",
 		"react": "^18.2.0",
