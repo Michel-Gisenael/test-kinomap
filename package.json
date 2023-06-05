@@ -1,0 +1,54 @@
+{
+	"name": "test-kinomap",
+	"version": "1.0.0",
+	"description": "A general template for an Enact Typescript application.",
+	"author": "",
+	"main": "src/index.tsx",
+	"scripts": {
+		"serve": "enact serve",
+		"pack": "enact pack",
+		"pack-p": "enact pack -p",
+		"watch": "enact pack --watch",
+		"clean": "enact clean",
+		"lint": "enact lint .",
+		"license": "enact license",
+		"test": "enact test",
+		"test-watch": "enact test --watch",
+    "pack-tv": "enact pack -l tv",
+    "launch-simulator": "ares-launch -s 23 ./dist"
+	},
+	"license": "UNLICENSED",
+	"private": true,
+	"repository": "",
+	"enact": {
+		"theme": "sandstone"
+	},
+	"eslintConfig": {
+		"extends": "enact-proxy"
+	},
+	"eslintIgnore": [
+		"node_modules/*",
+		"build/*",
+		"dist/*"
+	],
+	"dependencies": {
+		"@enact/core": "^4.6.0",
+		"@enact/i18n": "^4.6.0",
+		"@enact/sandstone": "^2.6.0",
+		"@enact/spotlight": "^4.6.0",
+		"@enact/ui": "^4.6.0",
+		"@enact/webos": "^4.7.1",
+		"@types/node": "^18.11.18",
+		"@types/react": "^18.0.27",
+		"@types/react-dom": "^18.0.10",
+		"ilib": "npm:ilib-webos@^14.15.1-webos1",
+		"prop-types": "^15.8.1",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"typescript": "^4.9.5",
+		"web-vitals": "^3.1.1"
+	},
+	"devDependencies": {
+		"eslint-config-enact-proxy": "^1.0.5"
+	}
+}
