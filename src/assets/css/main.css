@@ -1,0 +1,4 @@
+.spottable:focus {
+  box-shadow: 0 0 1rem rgba(0, 255, 255, 0.5);
+  filter: drop-shadow(0 0 5px cyan);
+}

@@ -8,12 +8,9 @@ import Loader from '../Loader';
 const VideoList: React.FC = () => {
   const {
     videoList,
-    loading
+    loading,
+    handleClickVideo
   } = useVideoListLogic()
-
-  const handleClick = () => {
-
-  }
 
   return loading
     ? (
@@ -24,7 +21,7 @@ const VideoList: React.FC = () => {
             <VideoListItem
               video={video}
               key={`video-item-${video.id}`}
-              handleClick={handleClick}
+              handleClick={handleClickVideo}
             />
           ))}
       </div>

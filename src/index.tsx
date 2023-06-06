@@ -1,8 +1,13 @@
 import {createRoot, hydrateRoot} from 'react-dom/client';
-
+import Spotlight from '@enact/spotlight'
 import App from './App';
+import './assets/css/main.css'
 
 const appElement = (<App />);
+
+Spotlight.add({
+
+})
 
 // In a browser environment, render instead of exporting
 if (typeof window !== 'undefined') {

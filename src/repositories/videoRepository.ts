@@ -4,7 +4,8 @@ const baseUrl: string =  process.env.REACT_APP_API_URL ?? ''
 export type ThumbnailVideoType = {
   large: string,
   medium: string,
-  small: string
+  small: string,
+  xlarge: string
 }
 
 export type VideoType = {
@@ -13,7 +14,7 @@ export type VideoType = {
   id: number,
   name: string,
   thumbnails: ThumbnailVideoType,
-  video_url_sd: string
+  video_url_sd: string,
 }
 
 type ResultVideoType = {

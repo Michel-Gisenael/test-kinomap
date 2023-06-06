@@ -2,26 +2,36 @@ import React from 'react';
 import styles from './styles/videoListItem.module.less'
 import { VideoType } from '../../repositories/videoRepository'
 import { convertDistance, convertDuration } from '../../utils/convert';
+import Spottable from '@enact/spotlight/Spottable';
+import { ClickEventHandlerType } from '../../types/event';
+import { IMAGE_DUMMY } from '../../constantes/data';
 
 type VideoListItemProps = {
   video: VideoType,
-  handleClick?: () => void
+  handleClick?: ClickEventHandlerType
 }
 
 const VideoListItem: React.FC<VideoListItemProps> = ({
-  video
+  video,
+  handleClick
 }) => {
+  
   return (
-    <div className={styles.videoItemContainer}>
+    <div 
+      id={`video-${video.id}`}
+      className={`${styles.videoItemContainer} spottable`} 
+      tabIndex={-1}
+      onKeyDown={handleClick}
+    >
       <img
         id={`video-${video.id}`}
         className={styles.videoImage}
-        src={video.thumbnails.medium}
+        src={IMAGE_DUMMY}
         alt=""
       />
 
       <div className={styles.videoTitleContainer}>
-        <span className={styles.videoTitleItem}>{ video.name }</span>
+        <span className={styles.videoTitleItem}> {video.id} { video.name }</span>
       </div>
 
       <div className={styles.extraInfoContainer}>
@@ -37,4 +47,4 @@ VideoListItem.defaultProps = {
   handleClick: () => {}
 }
 
-export default VideoListItem
+export default Spottable(VideoListItem)
