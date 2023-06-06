@@ -1,0 +1,1 @@
+export const IMAGE_DUMMY = 'https://www.sohealthy.fr/wp-content/uploads/2017/02/8-excellentes-raisons-de-se-mettre-a-la-course-a-pied-770x560.jpg'

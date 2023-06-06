@@ -4,6 +4,7 @@ import { VideoType } from '../../repositories/videoRepository'
 import { convertDistance, convertDuration } from '../../utils/convert';
 import Spottable from '@enact/spotlight/Spottable';
 import { ClickEventHandlerType } from '../../types/event';
+import { IMAGE_DUMMY } from '../../constantes/data';
 
 type VideoListItemProps = {
   video: VideoType,
@@ -25,7 +26,7 @@ const VideoListItem: React.FC<VideoListItemProps> = ({
       <img
         id={`video-${video.id}`}
         className={styles.videoImage}
-        src={video.thumbnails.medium}
+        src={IMAGE_DUMMY}
         alt=""
       />
 
