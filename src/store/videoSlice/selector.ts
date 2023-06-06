@@ -7,27 +7,21 @@ export const filterVideoState = ({ video }: RootState) => video.filter
 
 export const videoListFilterState = ({ video }: RootState) => {
   const { filter, videos } = video
+  const tmpVideo = [...videos]
   switch(filter.value){
-    case FILTER_VIDEO_DISTANCE_VALUE: return filterVideoByDistance(videos)
-    case FILTER_VIDEO_DURATION_VALUE: return filterVideoByDuration(videos)
-    default: return filterVideoByTitle(videos)
+    case FILTER_VIDEO_DISTANCE_VALUE: filterVideoByDistance(tmpVideo)
+      break;
+    case FILTER_VIDEO_DURATION_VALUE: filterVideoByDuration(tmpVideo)
+      break;
+    default: filterVideoByTitle(tmpVideo)
+      break;
   }
+
+  return tmpVideo
 }
 
-const filterVideoByTitle = (videos: VideoType[]) => {
-  const tmp  = [...videos]
-  tmp.sort((a, b) => a.name.localeCompare(b.name))
-  return tmp
-}
+const filterVideoByTitle = (videos: VideoType[]) => videos.sort((a, b) => a.name.localeCompare(b.name))
 
-const filterVideoByDistance = (videos: VideoType[]) => {
-  const tmp  = [...videos]
-  tmp.sort((a, b) => a.distance - b.distance)
-  return tmp
-}
+const filterVideoByDistance = (videos: VideoType[]) => videos.sort((a, b) => a.distance - b.distance)
 
-const filterVideoByDuration = (videos: VideoType[]) => {
-  const tmp  = [...videos]
-  tmp.sort((a, b) => a.duration - b.duration)
-  return tmp
-}
+const filterVideoByDuration = (videos: VideoType[]) => videos.sort((a, b) => a.duration - b.duration)
