@@ -3,7 +3,6 @@ import styles from './styles.module.less'
 import useLogicFilterVideo from './useLogic';
 import { FILTER_VIDEO_LIST } from '../../constantes/filterVideo'
 
-
 const FilterVideo: React.FC = () => {
   const {
     handleFilterChange,
@@ -11,7 +10,7 @@ const FilterVideo: React.FC = () => {
   } = useLogicFilterVideo()
 
   return (
-    <div className={styles.filterContainer}>
+    <div className={`${styles.filterContainer}`}>
       <label  htmlFor="video-filter">Filtrer par</label>
       <select 
         id="video-filter" 
@@ -35,4 +34,4 @@ const FilterVideo: React.FC = () => {
   )
 }
 
-export default FilterVideo
+export default (FilterVideo)
