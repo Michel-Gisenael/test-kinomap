@@ -1,27 +1,32 @@
-import React from 'react';
+import React, { KeyboardEvent } from 'react';
 import styles from './styles/videoListItem.module.less'
 import { VideoType } from '../../repositories/videoRepository'
 import { convertDistance, convertDuration } from '../../utils/convert';
 import Spottable from '@enact/spotlight/Spottable';
-import { ClickEventHandlerType } from '../../types/event';
 import { IMAGE_DUMMY } from '../../constantes/data';
+import { KEY_ENTER } from '../../constantes/keyCode';
 
 type VideoListItemProps = {
   video: VideoType,
-  handleClick?: ClickEventHandlerType
+  handleClick?: (video: VideoType) => void
 }
 
 const VideoListItem: React.FC<VideoListItemProps> = ({
   video,
-  handleClick
+  handleClick = () => {}
 }) => {
+
+  const handleKeyDown = (e: KeyboardEvent<HTMLElement>) => {
+    if(e.key === KEY_ENTER) handleClick(video)
+  }
   
   return (
     <div 
       id={`video-${video.id}`}
       className={`${styles.videoItemContainer} spottable`} 
       tabIndex={-1}
-      onKeyDown={handleClick}
+      onKeyDown={handleKeyDown}
+      onClick={() => handleClick(video)}
     >
       <img
         id={`video-${video.id}`}
@@ -43,8 +48,5 @@ const VideoListItem: React.FC<VideoListItemProps> = ({
 }
 
 VideoListItem.displayName = 'VideoListItemComponent'
-VideoListItem.defaultProps = {
-  handleClick: () => {}
-}
 
 export default Spottable(VideoListItem)

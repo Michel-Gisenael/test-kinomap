@@ -2,8 +2,7 @@ import { useEffect, useState } from "react"
 import { VideoType, fetchVideoData } from "../../repositories/videoRepository"
 import { useAppDispatch, useAppSelector } from "../../store/hook"
 import { videoListFilterState } from "../../store/videoSlice/selector"
-import { setVideoList } from "../../store/videoSlice"
-import { ClickEventHandlerType } from "../../types/event"
+import { setPlayVideo, setVideoList } from "../../store/videoSlice"
 
 /**
  * custom hooks for video list logics
@@ -28,9 +27,8 @@ const useVideoListLogic = () => {
     }
   }
 
-  const handleClickVideo: ClickEventHandlerType = (e) => {
-    // TODO: handle on video selected
-    console.log(e)
+  const handleClickVideo = (video: VideoType) => {
+    dispatch(setPlayVideo(video))
   }
 
   useEffect(() => {
