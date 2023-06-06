@@ -14,6 +14,7 @@ const VideoListItem: React.FC<VideoListItemProps> = ({
   return (
     <div className={styles.videoItemContainer}>
       <img
+        id={`video-${video.id}`}
         className={styles.videoImage}
         src={video.thumbnails.medium}
         alt=""
