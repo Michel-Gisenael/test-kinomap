@@ -3,6 +3,8 @@ import ThemeDecorator from '@enact/sandstone/ThemeDecorator';
 import VideoList from '../components/VideoList';
 import css from './App.module.less';
 import FilterVideo from '../components/FilterVideo';
+import { store } from '../store'
+import { Provider as StoreProvider } from 'react-redux';
 
 const App = kind({
 	name: 'App',
@@ -13,10 +15,12 @@ const App = kind({
 	},
 
 	render: (props) => (
-		<div {...props}>
-      <FilterVideo />
-			<VideoList />
-		</div>
+    <StoreProvider store={store}>
+      <div {...props}>
+        <FilterVideo />
+        <VideoList />
+      </div>
+    </StoreProvider>
 	)
 });
 
