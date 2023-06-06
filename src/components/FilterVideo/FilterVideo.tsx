@@ -10,13 +10,14 @@ const FilterVideo: React.FC = () => {
   } = useLogicFilterVideo()
 
   return (
-    <div className={`${styles.filterContainer}`}>
+    <div className={styles.filterContainer} >
       <label  htmlFor="video-filter">Filtrer par</label>
       <select 
         id="video-filter" 
-        className={styles.filterSelect}
+        className={`${styles.filterSelect} spottable`}
         onChange={handleFilterChange}
         value={JSON.stringify(current)}
+        tabIndex={-1}
       >
         {
           FILTER_VIDEO_LIST.map((filter, i) => (
