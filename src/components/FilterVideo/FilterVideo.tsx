@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 import styles from './styles.module.less'
 import useLogicFilterVideo from './useLogic';
 import { FILTER_VIDEO_LIST } from '../../constantes/filterVideo'
@@ -6,16 +6,17 @@ import { FILTER_VIDEO_LIST } from '../../constantes/filterVideo'
 
 const FilterVideo: React.FC = () => {
   const {
-    setCurrent,
+    handleFilterChange,
     current
   } = useLogicFilterVideo()
+
   return (
     <div className={styles.filterContainer}>
       <label  htmlFor="video-filter">Filtrer par</label>
       <select 
         id="video-filter" 
         className={styles.filterSelect}
-        onChange={(e: ChangeEvent<HTMLSelectElement>) => setCurrent(JSON.parse(e.target.value))}
+        onChange={handleFilterChange}
         value={JSON.stringify(current)}
       >
         {

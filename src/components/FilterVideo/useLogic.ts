@@ -1,19 +1,22 @@
-import { useState } from "react"
-import { FILTER_VIDEO_ALPHABETIC, FilterVideoTYpe } from '../../constantes/filterVideo'
+import { ChangeEvent } from "react"
+import { useAppDispatch, useAppSelector } from "../../store/hook"
+import { filterVideoState } from "../../store/videoSlice/selector"
+import { setFilterVideo } from "../../store/videoSlice"
 
 /**
  * custom hooks for video filter logics
  */
 
 const useLogicFilterVideo = () => {
-  /**
-   * state of current value filter
-   * set alphabetic as default value
-   */
-  const [current, setCurrent] = useState<FilterVideoTYpe>(FILTER_VIDEO_ALPHABETIC)
+  const dispatch = useAppDispatch()
+  const current = useAppSelector(filterVideoState)
+
+  const handleFilterChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    dispatch(setFilterVideo(JSON.parse(e.target.value)))
+  }
 
   return {
-    setCurrent,
+    handleFilterChange,
     current
   }
 }
