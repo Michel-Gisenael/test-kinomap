@@ -4,7 +4,8 @@ This project is a test for Kinomap about webOS
 
 # Installation
 
-* run ```yarn```
+* clone project
+* run ```yarn``` to install dependencies
 * change **.env.example** into **.env**
 * set value of *REACT_APP_API_URL* with the exact url of video api
 
