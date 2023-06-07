@@ -5,11 +5,12 @@ import { FILTER_VIDEO_LIST } from '../../constantes/filterVideo'
 import Container from '../ContainerSpotlight';
 import { useAppSelector } from '../../store/hook';
 import { isPlayingVideoState } from '../../store/videoSlice/selector';
+import Dropdown from '@enact/sandstone/Dropdown';
 
 const FilterVideo: React.FC = () => {
   const {
     handleFilterChange,
-    current
+    currentSelected
   } = useLogicFilterVideo()
 
   const isPlaying = useAppSelector(isPlayingVideoState)
@@ -21,25 +22,18 @@ const FilterVideo: React.FC = () => {
     >
       <div className={styles.filterContainer} >
         <label  htmlFor="video-filter">Filtrer par</label>
-        <select 
-          id="video-filter" 
-          className={`${styles.filterSelect} spottable`}
-          onChange={handleFilterChange}
-          value={JSON.stringify(current)}
-          tabIndex={-1}
+
+        <Dropdown
+          onSelect={handleFilterChange}
+          selected={currentSelected()}
         >
           {
-            FILTER_VIDEO_LIST.map((filter, i) => (
-              <option 
-                value={JSON.stringify(filter)} 
-                key={`filter-${filter.value}`}
-                className={styles.filterSelectOption}
-              >
-                {filter.label}
-              </option>
-            ))
+            FILTER_VIDEO_LIST.map((filter) => ({
+              children: filter.label,
+              key: filter.value
+            }))
           }
-        </select>
+        </Dropdown>
       </div>
     </Container>
   )
