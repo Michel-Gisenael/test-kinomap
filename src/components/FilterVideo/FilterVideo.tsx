@@ -6,6 +6,7 @@ import Container from '../ContainerSpotlight';
 import { useAppSelector } from '../../store/hook';
 import { isPlayingVideoState } from '../../store/videoSlice/selector';
 import Dropdown from '@enact/sandstone/Dropdown';
+import './customstyle.css'
 
 const FilterVideo: React.FC = () => {
   const {
@@ -26,6 +27,7 @@ const FilterVideo: React.FC = () => {
         <Dropdown
           onSelect={handleFilterChange}
           selected={currentSelected()}
+          size='small'
         >
           {
             FILTER_VIDEO_LIST.map((filter) => ({
