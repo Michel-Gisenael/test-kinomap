@@ -25,3 +25,8 @@ This project is a test for Kinomap about webOS
 * run ```yarn launch-simulator``` to launch the builded app on simulator webOS
     
 * If you encounter an error about app image, just follow the instructions on the link provided in the console. 
+
+## NB
+The current video uri is from open source [platform](https://pixabay.com/videos), and the url is not permanently available so if the video is not running you need to get another url and change the following file:
+
+```src > constantes > data.ts > VIDEO_DUMMY``` 
