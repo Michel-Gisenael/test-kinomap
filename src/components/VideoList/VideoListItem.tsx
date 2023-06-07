@@ -36,7 +36,7 @@ const VideoListItem: React.FC<VideoListItemProps> = ({
       />
 
       <div className={styles.videoTitleContainer}>
-        <span className={styles.videoTitleItem}> {video.id} { video.name }</span>
+        <span className={styles.videoTitleItem}> { video.name }</span>
       </div>
 
       <div className={styles.extraInfoContainer}>

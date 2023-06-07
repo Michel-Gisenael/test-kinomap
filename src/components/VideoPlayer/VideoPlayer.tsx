@@ -1,10 +1,11 @@
 import React from 'react'
-import FloatingLayer from '@enact/ui/FloatingLayer';
 import styles from './style.module.less'
 import useVideoPlayerLogic from './useLogic';
 import {VideoPlayerBase} from '@enact/sandstone/VideoPlayer';
 import { IMAGE_DUMMY, VIDEO_DUMMY } from '../../constantes/data';
 import Container from '../ContainerSpotlight';
+import Alert from '@enact/sandstone/Alert';
+import './customstyle.css'
 
 /**
  * There is to key down listener
@@ -26,16 +27,15 @@ const VideoPlayerComponent: React.FC = () => {
     handleStopVideo
   } = useVideoPlayerLogic()
   return (
-    <FloatingLayer open={videoToPlay ? true : false} >
+    <Alert open={videoToPlay ? true : false} >
       {
         videoToPlay && (
           <Container spotlightId='video-player'>
             <div 
-              className={`spottable ${styles.videoPlayerContainer}`} 
+              className={`${styles.videoPlayerContainer}`} 
               id="player"
               onKeyDown={handleKeyDown}
               ref={videoPlayerRef}
-              tabIndex={-1}
             >
               <VideoPlayerBase
                 title={videoToPlay.name} 
@@ -49,7 +49,7 @@ const VideoPlayerComponent: React.FC = () => {
           </Container>
         )
       }
-    </FloatingLayer>
+    </Alert>
   )
 }
 
