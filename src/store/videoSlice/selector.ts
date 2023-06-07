@@ -4,6 +4,8 @@ import { FILTER_VIDEO_DISTANCE_VALUE, FILTER_VIDEO_DURATION_VALUE } from '../../
 
 export const videoListState = ({ video }: RootState) => video.videos
 export const filterVideoState = ({ video }: RootState) => video.filter
+export const playedVideoState = ({ video }: RootState) => video.played
+export const isPlayingVideoState = ({ video }: RootState) => video.played ? true : false
 
 export const videoListFilterState = ({ video }: RootState) => {
   const { filter, videos } = video
@@ -21,7 +23,5 @@ export const videoListFilterState = ({ video }: RootState) => {
 }
 
 const filterVideoByTitle = (videos: VideoType[]) => videos.sort((a, b) => a.name.localeCompare(b.name))
-
 const filterVideoByDistance = (videos: VideoType[]) => videos.sort((a, b) => a.distance - b.distance)
-
 const filterVideoByDuration = (videos: VideoType[]) => videos.sort((a, b) => a.duration - b.duration)

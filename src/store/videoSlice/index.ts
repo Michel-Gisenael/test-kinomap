@@ -4,12 +4,14 @@ import { FILTER_VIDEO_ALPHABETIC, FilterVideoTYpe } from '../../constantes/filte
 
 type VideoState = {
   videos: VideoType[],
-  filter: FilterVideoTYpe
+  filter: FilterVideoTYpe,
+  played: VideoType | null
 }
 
 const initialState: VideoState = {
   videos: [],
-  filter: FILTER_VIDEO_ALPHABETIC
+  filter: FILTER_VIDEO_ALPHABETIC,
+  played: null
 }
 
 export const videoSlice = createSlice({
@@ -21,9 +23,16 @@ export const videoSlice = createSlice({
     },
     setFilterVideo: (state, action: PayloadAction<FilterVideoTYpe>) => {
       state.filter = action.payload
+    },
+    setPlayVideo: (state, action: PayloadAction<VideoType | null>) => {
+      state.played = action.payload
     }
   }
 })
 
-export const { setVideoList, setFilterVideo } = videoSlice.actions
+export const { 
+  setVideoList, 
+  setFilterVideo,
+  setPlayVideo 
+} = videoSlice.actions
 export default videoSlice.reducer
