@@ -17,7 +17,7 @@ const VideoListItem: React.FC<VideoListItemProps> = ({
 }) => {
 
   const handleKeyDown = (e: KeyboardEvent<HTMLElement>) => {
-    if(e.key === KEY_ENTER) handleClick(video)
+    if(e.keyCode === KEY_ENTER) handleClick(video)
   }
   
   return (

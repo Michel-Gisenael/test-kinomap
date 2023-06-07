@@ -2,14 +2,14 @@ import React from 'react'
 import FloatingLayer from '@enact/ui/FloatingLayer';
 import styles from './style.module.less'
 import useVideoPlayerLogic from './useLogic';
-import VideoPlayer from '@enact/sandstone/VideoPlayer';
+import VideoPlayer, {Video, VideoPlayerBase} from '@enact/sandstone/VideoPlayer';
 import { IMAGE_DUMMY, VIDEO_DUMMY } from '../../constantes/data';
-import {MediaControls} from '@enact/sandstone/MediaPlayer';
 import Container from '../ContainerSpotlight';
-
 const VideoPlayerComponent: React.FC = () => {
   const {
-    videoToPlay
+    videoToPlay,
+    handleKeyDown,
+    videoPlayerRef
   } = useVideoPlayerLogic()
   return (
     <FloatingLayer open={videoToPlay ? true : false} >
@@ -17,14 +17,20 @@ const VideoPlayerComponent: React.FC = () => {
         videoToPlay && (
           <Container spotlightId='video-player'>
             <div 
-              className={styles.videoPlayerContainer} 
+              className={`spottable ${styles.videoPlayerContainer}`} 
               id="player"
-              onFocus={() => console.log('focuse')}
+              onKeyDown={handleKeyDown}
+              ref={videoPlayerRef}
+              tabIndex={-1}
             >
-              <VideoPlayer title={videoToPlay.name} poster={IMAGE_DUMMY}>
-                <source src={VIDEO_DUMMY} type="video/mp4" />
-                <MediaControls id="media-player-control">
-                </MediaControls>
+              <VideoPlayer
+                title={videoToPlay.name} 
+                poster={IMAGE_DUMMY}
+                onKeyDown={handleKeyDown}
+              >
+                <Video >
+                  <source src={VIDEO_DUMMY} />
+                </Video>
               </VideoPlayer>
             </div>
           </Container>
