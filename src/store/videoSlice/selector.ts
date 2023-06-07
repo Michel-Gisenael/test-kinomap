@@ -5,6 +5,7 @@ import { FILTER_VIDEO_DISTANCE_VALUE, FILTER_VIDEO_DURATION_VALUE } from '../../
 export const videoListState = ({ video }: RootState) => video.videos
 export const filterVideoState = ({ video }: RootState) => video.filter
 export const playedVideoState = ({ video }: RootState) => video.played
+export const isPlayingVideoState = ({ video }: RootState) => video.played ? true : false
 
 export const videoListFilterState = ({ video }: RootState) => {
   const { filter, videos } = video
