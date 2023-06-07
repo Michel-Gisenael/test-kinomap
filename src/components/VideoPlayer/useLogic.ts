@@ -16,14 +16,17 @@ const useVideoPlayerLogic = () => {
     if(e) e.focus()
   }, [])
 
+  const handleStopVideo = () => dispatch(setPlayVideo(null))
+
   const handleKeyDown = (e: KeyboardEvent<HTMLElement>) => {
-    if(e.keyCode === KEY_STOP) dispatch(setPlayVideo(null))
+    if(e.keyCode === KEY_STOP) handleStopVideo()
   }
 
   return {
     videoToPlay,
     handleKeyDown,
-    videoPlayerRef
+    videoPlayerRef,
+    handleStopVideo
   }
 }
 

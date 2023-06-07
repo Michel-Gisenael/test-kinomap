@@ -2,14 +2,15 @@ import React from 'react'
 import FloatingLayer from '@enact/ui/FloatingLayer';
 import styles from './style.module.less'
 import useVideoPlayerLogic from './useLogic';
-import VideoPlayer, {Video, VideoPlayerBase} from '@enact/sandstone/VideoPlayer';
+import {VideoPlayerBase} from '@enact/sandstone/VideoPlayer';
 import { IMAGE_DUMMY, VIDEO_DUMMY } from '../../constantes/data';
 import Container from '../ContainerSpotlight';
 const VideoPlayerComponent: React.FC = () => {
   const {
     videoToPlay,
     handleKeyDown,
-    videoPlayerRef
+    videoPlayerRef,
+    handleStopVideo
   } = useVideoPlayerLogic()
   return (
     <FloatingLayer open={videoToPlay ? true : false} >
@@ -23,15 +24,14 @@ const VideoPlayerComponent: React.FC = () => {
               ref={videoPlayerRef}
               tabIndex={-1}
             >
-              <VideoPlayer
+              <VideoPlayerBase
                 title={videoToPlay.name} 
                 poster={IMAGE_DUMMY}
                 onKeyDown={handleKeyDown}
+                src={VIDEO_DUMMY}
+                onBack={handleStopVideo}
               >
-                <Video >
-                  <source src={VIDEO_DUMMY} />
-                </Video>
-              </VideoPlayer>
+              </VideoPlayerBase>
             </div>
           </Container>
         )
