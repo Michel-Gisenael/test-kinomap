@@ -1,0 +1,6 @@
+.enact_sandstone_Alert_Alert_alert.enact_sandstone_Alert_Alert_fullscreen .enact_sandstone_Alert_Alert_content {
+  max-height: 100%;
+}
+.enact_sandstone_Alert_Alert_alert.enact_sandstone_Alert_Alert_fullscreen .enact_sandstone_Alert_Alert_title, .enact_sandstone_Alert_Alert_alert.enact_sandstone_Alert_Alert_fullscreen .enact_sandstone_Alert_Alert_content {
+  max-width: 100%;
+}
