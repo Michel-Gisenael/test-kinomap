@@ -6,7 +6,7 @@ This project is a test for Kinomap about webOS
 
 * run ```yarn```
 * change **.env.example** into **.env**
-* set value of *REACT_APP_API_URL* with the exact url of video
+* set value of *REACT_APP_API_URL* with the exact url of video api
 
 # Launch project
 
